@@ -1,9 +1,13 @@
 package com.example.cursodioeletriccar
 
+import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cursodioeletriccar.data.Carros
 
@@ -37,3 +41,45 @@ class CarViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
 
     }
+
+class CarFragment: Fragment() {
+
+   lateinit var btnRecyclerview : Button
+   lateinit var btnListView : Button
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.activity_car_fragment, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        //o melhor metodo para adicionar os binding é dentro do Onviewcreated pois é depois da view mostra
+
+        setupView()
+
+        btnListView.setOnClickListener{
+
+            startActivity(Intent(context, ListView::class.java))
+
+        }
+        btnRecyclerview.setOnClickListener{
+            startActivity(Intent(context, RecyclerView::class.java))
+        }
+
+
+    }
+
+    fun setupView(){
+        view?.apply {
+            btnRecyclerview = findViewById(R.id.btn_recyclerview)
+            btnListView = findViewById(R.id.btn_listView)
+        }
+
+    }
+
+}

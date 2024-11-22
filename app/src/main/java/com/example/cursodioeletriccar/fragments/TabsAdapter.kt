@@ -3,6 +3,7 @@ package com.example.cursodioeletriccar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.example.cursodioeletriccar.fragments.FavoriteFragment
 
 class TabsAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapter(fragmentActivity) {
     //implementar construtores
